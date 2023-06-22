@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Objects;
 
 public class Tienda {
     private String direccion;
@@ -11,23 +12,25 @@ public class Tienda {
         this.listaDispositivos = listaDispositivos;
         this.listaCuentas = listaCuentas;
     }
-    public Tienda (ArrayList<Cuenta> listaCuentas) {
-        this.listaCuentas = listaCuentas;
+
+
+    public void agregarDispositivos (Dispositivo dispositivoNuevo) {
+                listaDispositivos.add(dispositivoNuevo);
     }
 
-    public Cuenta agregarCliente (Cliente cliente, String user, String password) {
-        Cuenta cuenta = null;
-        Cuenta nuevaCuenta = new Cuenta(cliente.getNombre()+", "+cliente.getApellido(), user, password);
-        for (Cuenta auxCuenta: listaCuentas) {
-            if ((auxCuenta.getUsuario().toLowerCase(Locale.ROOT).equals(user.toLowerCase(Locale.ROOT)))) {
-                cuenta = auxCuenta;
-                break;
+
+
+    public ArrayList<Cuenta> agregarCliente (ArrayList<Cuenta> listaCuentas ,Cliente cliente, String user, String password) {
+        Cuenta cuenta = new Cuenta(cliente.getNombre(), user, password);
+        for (Cuenta cadaCuenta: listaCuentas) {
+            if ((cadaCuenta.getUsuario().toLowerCase(Locale.ROOT).equals(user.toLowerCase(Locale.ROOT)))) {
+                listaCuentas.add(cuenta);
             }else {
                 System.out.println("ya existe user");
                 return null;
             }
         }
-        return cuenta;
+        return listaCuentas;
     }
 
 
@@ -47,6 +50,13 @@ public class Tienda {
         this.listaCuentas = listaCuentas;
     }
 
+    public ArrayList<Dispositivo> getListaDispositivos() {
+        return listaDispositivos;
+    }
+
+    public void setListaDispositivos(ArrayList<Dispositivo> listaDispositivos) {
+        this.listaDispositivos = listaDispositivos;
+    }
 
     @Override
     public String toString() {

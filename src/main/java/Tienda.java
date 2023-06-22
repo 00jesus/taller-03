@@ -19,7 +19,6 @@ public class Tienda {
     }
 
 
-
     public ArrayList<Cuenta> agregarCliente (ArrayList<Cuenta> listaCuentas ,Cliente cliente, String user, String password) {
         Cuenta cuenta = new Cuenta(cliente.getNombre(), user, password);
         for (Cuenta cadaCuenta: listaCuentas) {

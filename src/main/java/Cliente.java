@@ -68,4 +68,18 @@ public class Cliente {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", numeroContacto=" + numeroContacto +
+                ", estadoCivil='" + estadoCivil + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", cuenta=" + cuenta +
+                '}';
+    }
 }

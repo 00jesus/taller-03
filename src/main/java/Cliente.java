@@ -5,7 +5,21 @@ public class Cliente {
     private int numeroContacto;
     private String estadoCivil;
     private String ciudad;
-    public Cuenta unnamed_Cuenta_;
+    private Cuenta cuenta;
+
+    public Cliente(String nombre, String apellido, String email, int numeroContacto, String estadoCivil, String ciudad, Cuenta cuenta) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.numeroContacto = numeroContacto;
+        this.estadoCivil = estadoCivil;
+        this.ciudad = ciudad;
+        this.cuenta = cuenta;
+    }
+    public Cliente (String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
 
     public String getNombre() {
         return this.nombre;
